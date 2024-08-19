@@ -36,9 +36,9 @@ class FightOutput extends Equatable implements JsonSerializable {
       fightNumber: json['fightNumber'] as int,
       meronId: json['meronId'] as String,
       walaId: json['walaId'] as String,
-      startTime: json['startTime'] as String,
-      isLocked: json['isLocked'] as bool,
-      winnerId: json['winnerId'] as String,
+      startTime: json.parseString('startTime'),
+      isLocked: json.parseBool('isLocked'),
+      winnerId: json.parseString('winnerId'),
       createdAt: json['createdAt'] as String,
       updatedAt: json['updatedAt'] as String,
     );
@@ -60,11 +60,19 @@ class FightOutput extends Equatable implements JsonSerializable {
 
   @override
   Map<String, dynamic> toTableJson() {
+    final createdAtFormat = DateFormat('MM/dd/yyyy hh:mm:ss aa').format(
+      DateTime.parse(createdAt),
+    );
+
+    final updatedAtFormat = DateFormat('MM/dd/yyyy hh:mm:ss aa').format(
+      DateTime.parse(updatedAt),
+    );
+
     return {
       'fightNumber': fightNumber,
       'startTime': startTime,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
+      'createdAt': createdAtFormat,
+      'updatedAt': updatedAtFormat,
     };
   }
 

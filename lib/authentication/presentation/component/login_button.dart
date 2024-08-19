@@ -27,11 +27,8 @@ class LoginButton extends StatelessWidget {
                 SnackBar(
                   content: Text(
                     'Login failed',
-                    style: context.textStyle.caption.copyWith(
-                      color: context.colors.onError,
-                    ),
+                    style: context.textStyle.caption,
                   ),
-                  backgroundColor: context.colors.error,
                 ),
               );
               context.go(EventScreen.routeName);

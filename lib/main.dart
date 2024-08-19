@@ -1,3 +1,4 @@
+import 'package:bet/common/theme/theme.dart';
 import 'package:bet/config/route/route.dart';
 import 'package:bet/user/data/di/user_service_locator.dart';
 import 'package:bet/user/presentation/bloc/account_bloc.dart';
@@ -30,6 +31,7 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp.router(
         title: 'Betting App',
+        theme: themeData,
         routerConfig: router,
         debugShowCheckedModeBanner: false,
       ),

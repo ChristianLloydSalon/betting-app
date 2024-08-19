@@ -29,40 +29,11 @@ class BaseTextfield extends StatelessWidget {
       focusNode: focusNode,
       autofocus: autofocus,
       onChanged: (value) => onChanged(value),
-      style: context.textStyle.bodyText2.copyWith(
-        color: context.colors.onBackground,
-      ),
       decoration: InputDecoration(
         labelText: labelText,
-        labelStyle: context.textStyle.bodyText2.copyWith(
-          color: context.colors.onBackground,
-        ),
+        labelStyle: context.textStyle.bodyText2,
         hintText: hintText,
-        hintStyle: context.textStyle.bodyText2.copyWith(
-          color: context.colors.onBackground,
-        ),
-        filled: true,
-        fillColor: context.colors.background,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(context.layout.largeRadius),
-          borderSide: BorderSide.none,
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(context.layout.largeRadius),
-          borderSide: BorderSide.none,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(context.layout.largeRadius),
-          borderSide: BorderSide(
-            color: context.colors.primary,
-          ),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(context.layout.largeRadius),
-          borderSide: BorderSide(
-            color: context.colors.error,
-          ),
-        ),
+        hintStyle: context.textStyle.bodyText2,
       ),
       obscureText: obscureText,
     );

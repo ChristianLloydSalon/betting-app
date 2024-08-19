@@ -18,7 +18,6 @@ class SideNavigationBar extends StatelessWidget {
     return NavigationRail(
       selectedIndex: navigationShell.currentIndex,
       onDestinationSelected: _onTap,
-      labelType: NavigationRailLabelType.all,
       destinations: const [
         NavigationRailDestination(
           icon: Icon(Icons.event),

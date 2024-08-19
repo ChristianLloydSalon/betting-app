@@ -1,4 +1,3 @@
-import 'package:bet/common/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBarItem extends StatelessWidget {
@@ -18,15 +17,9 @@ class NavigationBarItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      hoverColor: context.colors.primary.withOpacity(0.1),
       selected: isSelected,
       leading: icon,
-      title: Text(
-        title,
-        style: TextStyle(
-          color: isSelected ? context.colors.primary : context.colors.secondary,
-        ),
-      ),
+      title: Text(title),
       onTap: onTap,
     );
   }
