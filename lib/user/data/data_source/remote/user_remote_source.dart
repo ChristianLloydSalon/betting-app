@@ -26,7 +26,7 @@ class UserRemoteSource {
 
   Future<UserOutput> updateUser(
       {required userId, required UpdateUserInput input}) async {
-    final response = await _manager.patch(
+    final response = await _manager.put(
       '$userPath/update/$userId',
       data: input.toJson(),
     );
