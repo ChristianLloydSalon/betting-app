@@ -1,16 +1,19 @@
+import 'package:bet/common/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class NavigationBarItem extends StatelessWidget {
   const NavigationBarItem({
     required this.title,
-    required this.icon,
+    required this.selectedIcon,
+    required this.unselectedIcon,
     required this.onTap,
     required this.isSelected,
     super.key,
   });
 
   final String title;
-  final Widget icon;
+  final Widget selectedIcon;
+  final Widget unselectedIcon;
   final void Function() onTap;
   final bool isSelected;
 
@@ -18,7 +21,9 @@ class NavigationBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       selected: isSelected,
-      leading: icon,
+      selectedTileColor: context.colors.surfaceTint,
+      selectedColor: context.colors.onPrimary,
+      leading: isSelected ? selectedIcon : unselectedIcon,
       title: Text(title),
       onTap: onTap,
     );

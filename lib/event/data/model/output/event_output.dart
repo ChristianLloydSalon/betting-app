@@ -57,6 +57,8 @@ class EventOutput extends Equatable implements JsonSerializable {
     };
   }
 
+  static const empty = EventOutput();
+
   @override
   List<Object?> get props => [
         id,

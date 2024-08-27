@@ -34,6 +34,17 @@ class _MyAppState extends State<MyApp> {
         theme: themeData,
         routerConfig: router,
         debugShowCheckedModeBanner: false,
+        builder: (context, child) {
+          if (child == null) {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }
+
+          return child;
+        },
       ),
     );
   }

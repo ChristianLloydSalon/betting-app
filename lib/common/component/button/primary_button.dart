@@ -22,7 +22,13 @@ class PrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: state.isEnabled ? onPressed : null,
         child: state.isLoading
-            ? const CircularProgressIndicator()
+            ? SizedBox(
+                height: 15,
+                width: 15,
+                child: CircularProgressIndicator(
+                  color: context.colors.onPrimary,
+                ),
+              )
             : label ?? Text(labelText, style: context.textStyle.button),
       ),
     );

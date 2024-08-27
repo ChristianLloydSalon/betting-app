@@ -6,8 +6,8 @@ part '../../common/theme/screen_size/screen_size.dart';
 part '../../common/theme/typography/text_style.dart';
 
 extension AppTheme on BuildContext {
+  ColorScheme get colors => AppColors.scheme;
   AppLayout get layout => AppLayout.layout;
-  ScreenSize get screenSize => ScreenSize();
   AppTextStyle get textStyle => AppTextStyle.defaultTextStyle();
 }
 
@@ -139,29 +139,29 @@ final themeData = ThemeData(
     color: AppColors.scheme.surfaceDim,
     thickness: 1.0,
   ),
-  dataTableTheme: DataTableThemeData(
-    dataTextStyle: AppTextStyle.defaultTextStyle().bodyText2,
-    headingTextStyle: AppTextStyle.defaultTextStyle().bodyText2.copyWith(
-          color: AppColors.scheme.onPrimary,
-        ),
-    dataRowMinHeight: 48.0,
-    dataRowMaxHeight: 48.0,
-    headingRowHeight: 56.0,
-    horizontalMargin: 16.0,
-    columnSpacing: 16.0,
-    headingRowColor: WidgetStateProperty.all(AppColors.scheme.primary),
-    dividerThickness: 1.0,
-    decoration: BoxDecoration(
-      border: Border.all(
-        color: AppColors.scheme.surfaceDim,
-        width: 1.0,
-      ),
-      borderRadius: BorderRadius.circular(
-        AppLayout.layout.mediumRadius,
-      ),
-    ),
-  ),
   disabledColor: AppColors.scheme.surfaceDim,
+  pageTransitionsTheme: PageTransitionsTheme(
+    builders: {
+      TargetPlatform.android: _NoTransitionPageTransitionsBuilder(),
+      TargetPlatform.iOS: _NoTransitionPageTransitionsBuilder(),
+      TargetPlatform.linux: _NoTransitionPageTransitionsBuilder(),
+      TargetPlatform.macOS: _NoTransitionPageTransitionsBuilder(),
+      TargetPlatform.windows: _NoTransitionPageTransitionsBuilder(),
+    },
+  ),
   fontFamily: 'Outfit',
   useMaterial3: true,
 );
+
+class _NoTransitionPageTransitionsBuilder extends PageTransitionsBuilder {
+  @override
+  Widget buildTransitions<T>(
+    PageRoute<T> route,
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return child;
+  }
+}

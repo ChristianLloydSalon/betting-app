@@ -22,6 +22,8 @@ class LoginButton extends StatelessWidget {
               context
                   .read<AccountBloc>()
                   .add(AccountEventLoggedUserRequested());
+
+              context.go(EventScreen.routeName);
             } else if (state.status.isError) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -31,15 +33,6 @@ class LoginButton extends StatelessWidget {
                   ),
                 ),
               );
-              context.go(EventScreen.routeName);
-            }
-          },
-        ),
-        BlocListener<AccountBloc, AccountState>(
-          listenWhen: (previous, current) =>
-              previous.userOutput != current.userOutput,
-          listener: (context, state) {
-            if (state.userOutput.isNotEmpty) {
               context.go(EventScreen.routeName);
             }
           },

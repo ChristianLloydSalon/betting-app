@@ -10,6 +10,7 @@ class BaseTextfield extends StatelessWidget {
     this.labelText,
     this.hintText,
     this.obscureText = false,
+    this.enabled = true,
     super.key,
   });
 
@@ -19,6 +20,7 @@ class BaseTextfield extends StatelessWidget {
   final String? labelText;
   final String? hintText;
   final bool obscureText;
+  final bool enabled;
 
   final void Function(String) onChanged;
 
@@ -26,6 +28,7 @@ class BaseTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      enabled: enabled,
       focusNode: focusNode,
       autofocus: autofocus,
       onChanged: (value) => onChanged(value),

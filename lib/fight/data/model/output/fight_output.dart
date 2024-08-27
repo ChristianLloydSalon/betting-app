@@ -12,6 +12,9 @@ class FightOutput extends Equatable implements JsonSerializable {
     this.winnerId = '',
     this.createdAt = '',
     this.updatedAt = '',
+    this.status = '',
+    this.isDraw = false,
+    this.isCanceled = false,
   });
 
   final String id;
@@ -24,6 +27,9 @@ class FightOutput extends Equatable implements JsonSerializable {
   final String winnerId;
   final String createdAt;
   final String updatedAt;
+  final String status;
+  final bool isDraw;
+  final bool isCanceled;
 
   static const empty = FightOutput();
 
@@ -41,6 +47,9 @@ class FightOutput extends Equatable implements JsonSerializable {
       winnerId: json.parseString('winnerId'),
       createdAt: json['createdAt'] as String,
       updatedAt: json['updatedAt'] as String,
+      status: json.parseString('status'),
+      isDraw: json.parseBool('isDraw'),
+      isCanceled: json.parseBool('isCanceled'),
     );
   }
   Map<String, dynamic> toJson() {
