@@ -26,12 +26,14 @@ class CustomDataTable<T extends JsonSerializable> extends StatelessWidget {
       minWidth: 100,
       columns: [
         ...columns,
-        const DataColumn(
-          label: Text(''),
-        ),
-        const DataColumn(
-          label: Text(''),
-        )
+        if (onUpdate != null)
+          const DataColumn(
+            label: Text(''),
+          ),
+        if (onDelete != null)
+          const DataColumn(
+            label: Text(''),
+          )
       ],
       showHeadingCheckBox: false,
       showCheckboxColumn: false,

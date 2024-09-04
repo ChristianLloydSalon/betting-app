@@ -220,10 +220,6 @@ class _FightListScreen extends StatelessWidget {
                   BlocProvider.of<FightUpdateOrDeleteBloc>(context)
                       .add(FightDeleted(fight.id));
                 },
-                onUpdate: (fight) {
-                  _showCreateFightModal(context, FightModalType.edit,
-                      fight: fight);
-                },
               ),
             ),
           );
