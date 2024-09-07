@@ -234,7 +234,10 @@ class _FightListScreen extends StatelessWidget {
                       return const SizedBox();
                     }
 
-                    final fights = state.fights;
+                    final fights = state.fights
+                      ..sort((a, b) {
+                        return a.fightNumber.compareTo(b.fightNumber);
+                      });
 
                     return CustomDataTable<FightOutput>(
                       columns: _columns,
